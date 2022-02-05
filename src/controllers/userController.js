@@ -122,7 +122,7 @@ const getUser = async function (req, res) {
         if (!validator.isValid(userId)) {
             return res.status(400).send({ status: false, message: " pls provide userId in params." })
         }
-        const isUser = await userModel.findOne({ _id: userId })
+        const isUser = await userModel.findOne({ _id: userId })  //findById(id)
         if (!isUser) {
             return res.status(400).send({ status: false, message: `${userId} doesn't exists ` })
         }

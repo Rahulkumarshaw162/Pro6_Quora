@@ -51,7 +51,7 @@ const askQuestion = async function (req, res) {
         }
         const question = await questionModel.create(userQuestion);
         const updatUserCredit = await userModel.findOneAndUpdate({ _id: askedBy }, { $set: { creditScore: creditScore } }, { new: true })
-        console.log(updatUserCredit)
+        // console.log(updatUserCredit)
         return res.status(201).send({ status: true, message: "Question asked succesfully.", data: { question, updatUserCredit } });
     } catch (err) {
         return res.status(500).send({ status: false, message: "Error is : " + err })
